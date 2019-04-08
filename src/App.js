@@ -38,16 +38,24 @@ export default function App() {
   };
 
   return (
-    <>
-      <form onSubmit={handleSearch}>
+    <div className="conatiner max-w-md mx-auto p-4 m-2 bg-purple-lightest shadow-lg rounded">
+      <h1 className="text-grey-darkest font-thin">Hooks News</h1>
+      <form onSubmit={handleSearch} className="mb-2">
         <input
           type="text"
           onChange={event => setQuery(event.target.value)}
           value={query}
           ref={searchInputRef}
+          className="border p-1 rounded"
         />
-        <button type="submit">Search</button>
-        <button type="button" onClick={handleClearSearch}>
+        <button type="submit" className="bg-orange rounded m-1 p-1">
+          Search
+        </button>
+        <button
+          type="button"
+          onClick={handleClearSearch}
+          className="bg-teal text-white p-1 rounded"
+        >
           Clear
         </button>
       </form>
@@ -63,6 +71,6 @@ export default function App() {
         </ul>
       )}
       {error && <div>{error.message}</div>}
-    </>
+    </div>
   );
 }
